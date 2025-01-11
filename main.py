@@ -20,15 +20,27 @@ def send_message(text, chat_id):
     r = requests.get(url, params=params)
     return r.json()
 
+
+def send_photo(photo, chat_id):
+    url = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
+    params = {
+        'chat_id': chat_id, 
+        'photo': photo
+        }
+    r = requests.get(url, params=params)
+    return r.json()
+
+def send_contact(chat_id):
+    url = f"https://api.telegram.org/bot{TOKEN}/sendContact"
+    params = {
+        'chat_id': chat_id, 
+        'phone_number': '+998933339899',
+        'first_name': 'Zarif',
+        'last_name': 'Naxalov',
+    }
+    r = requests.get(url, params=params)
+    return r.json()
+
 CHAT_ID = "86775091"
 
-TEXT ="""
-Simple TEXT
-Bold *TEXT*
-Italic _TEXT_
-underline __TEXT__
-spoiler ||Headin Text||
-"""
-
-send_message(TEXT, CHAT_ID)
-
+send_contact(CHAT_ID)
