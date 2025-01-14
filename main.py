@@ -12,7 +12,7 @@ def get_updates():
     return r.json()
 
 def send_message(text, chat_id):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={text}"
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     r=requests.get(url)
     return r.json()
 
@@ -31,6 +31,3 @@ while True:
         send_message(text,chat_id)
     idx=next_update_id
     time.sleep(1)
-
-
-
