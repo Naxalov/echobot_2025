@@ -4,6 +4,8 @@ TOKEN = os.getenv("TOKEN")
 
 def send_location(chat_id, latitude, longitude):
     url = f"https://api.telegram.org/bot{TOKEN}/sendLocation"
+    
+    
     params = {
         "chat_id": chat_id,
         "latitude": latitude,

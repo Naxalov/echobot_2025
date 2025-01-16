@@ -5,11 +5,13 @@ TOKEN = os.getenv("TOKEN")
 def send_message(chat_id, text):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     button={
-         'text': '📚Sozlar'
+         'text': 'location',
+         'request_location': True
 
     }
     button2={
-        'text': '👑Pro',
+        'text': 'contact',
+        'request_contact': True
     }
     button3={
         'text': '😊Mashqlar'
