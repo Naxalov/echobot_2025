@@ -1,14 +1,19 @@
-from telegram import Bot
+from telegram.ext import Updater,MessageHandler
+from telegram import Bot, Update
 import os
+
+def echo(update: Update, context):
+    print(update.message.text)
 
 TOKEN = os.getenv("TOKEN")
 
-bot = Bot(token=TOKEN)
+updater = Updater(token=TOKEN)
 
-user=bot.get_me()
-update = bot.get_updates()[0]
-message = update.message
-print(message.text)
+dispatcher = updater.dispatcher
 
+# add handlers here
 
+dispatcher.add_handler(MessageHandler(filters=None,callback=echo))
 
+updater.start_polling()
+updater.idle()
